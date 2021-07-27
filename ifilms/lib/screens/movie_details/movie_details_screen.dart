@@ -11,6 +11,7 @@ import 'components/custom_head.dart';
 import 'components/custom_overview.dart';
 import 'components/custom_recommend.dart';
 import 'components/custom_trailer.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final MovieDetailStore _movieDetailController = GetIt.I<MovieDetailStore>();
@@ -52,7 +53,17 @@ class MovieDetailsScreen extends StatelessWidget {
                     _movieDetailController.similarModel.movie.isEmpty
                         ? Container()
                         : CustomRecommend(
-                            similar: _movieDetailController.similarModel.movie)
+                            similar: _movieDetailController.similarModel.movie,
+                          ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('images/tmdb.png'))),
+                      ),
+                    ),
                   ],
                 );
         }),

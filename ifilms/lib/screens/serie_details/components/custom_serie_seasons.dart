@@ -91,6 +91,7 @@ class CustomSerieTabSeasons extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: ExpansionTile(
                     iconColor: Colors.white,
+                    collapsedIconColor: Colors.white,
                     title: CustomText(
                       text: '${index + 1}. ${ep.name}',
                       corText: Colors.white,

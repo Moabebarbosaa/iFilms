@@ -26,7 +26,7 @@ class CustomRecommend extends StatelessWidget {
           bottomPadding: 0,
         ),
         SizedBox(
-          height: 330,
+          height: 300,
           child: ListView.builder(
               physics: ClampingScrollPhysics(),
               shrinkWrap: true,
@@ -40,6 +40,7 @@ class CustomRecommend extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 20, top: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       GestureDetector(
                         child: CustomPoster(
