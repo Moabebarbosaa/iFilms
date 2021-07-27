@@ -18,8 +18,6 @@ https://play.google.com/store
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
 * **Moabe Barbosa Alves** - *Fez tudo :)* - [LinkedIn](https://www.linkedin.com/in/moabe-barbosa-72210a191/)
 
 ## 📄 Licença
