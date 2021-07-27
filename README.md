@@ -9,6 +9,7 @@ https://play.google.com/store
 ## 🛠️ Construído com
 
 * [Flutter](https://flutter.dev/) - Kit de desenvolvimento de software de IU de código aberto criado pelo Google.
+* [TMDB](https://developers.themoviedb.org/3) - API usado no aplicativo.
 * [MobX](https://pub.dev/packages/mobx) - Biblioteca de gerenciamento de estado.
 * [AdMob](https://admob.google.com/home/) - Monetização do aplicativo.
 
