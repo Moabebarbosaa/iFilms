@@ -28,7 +28,7 @@ Este projeto está sob a licença - veja o arquivo [LICENSE.md](https://moabebar
 
 ## 🎁 "É melhor você tentar algo, vê-lo não funcionar e aprender com isso, do que não fazer nada." Mark Zuckerberg
 
-* Obrigado 🤓🍺.
+* Mas tomara que funcione! 🤓🍺.
 
 
 
