@@ -3,7 +3,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ifilms/components/custom_poster.dart';
 import 'package:ifilms/components/custom_text.dart';
 import 'package:ifilms/models/movie/movie_model.dart';
-import 'package:ifilms/models/movie_serie/genre_model.dart';
 
 class CustomDetails extends StatelessWidget {
   final MovieModel movieModel;

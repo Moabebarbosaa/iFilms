@@ -50,7 +50,6 @@ class CustomRecommend extends StatelessWidget {
                           boxShape: null,
                         ),
                         onTap: () {
-                          print("ID: ${obra.id}");
                           Navigator.of(context).pop();
                           _movieDetailController.loadMovieScreen(obra.id);
                           Navigator.of(context).push(

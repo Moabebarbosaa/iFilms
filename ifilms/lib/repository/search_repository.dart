@@ -17,7 +17,6 @@ class SearchRepository {
       final model = SerieGenreModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -28,7 +27,6 @@ class SearchRepository {
       final model = MovieGenreModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -40,7 +38,6 @@ class SearchRepository {
       final model = ListDetailModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -52,7 +49,6 @@ class SearchRepository {
       final model = ListDetailModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -64,7 +60,6 @@ class SearchRepository {
       final model = ListDetailModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }

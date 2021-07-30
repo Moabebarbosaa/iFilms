@@ -13,7 +13,6 @@ class InTheaterRepository {
       final model = ListDetailModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }

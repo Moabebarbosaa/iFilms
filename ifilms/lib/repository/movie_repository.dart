@@ -15,7 +15,6 @@ class MovieRepository {
       final model = PopularMoviesModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -26,7 +25,6 @@ class MovieRepository {
       final model = MovieModel.fromMap(response.data['results'][0]);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -37,7 +35,6 @@ class MovieRepository {
       final model = MovieModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -49,7 +46,6 @@ class MovieRepository {
       final model = CastModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -60,7 +56,6 @@ class MovieRepository {
       final model = YoutubeModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }

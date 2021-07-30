@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ifilms/core/api_.dart';
 import 'package:ifilms/models/movie_serie/cast_model.dart';
-import 'package:ifilms/models/movie/similar_movie_model.dart';
 import 'package:ifilms/models/movie_serie/youtube_model.dart';
 import 'package:ifilms/models/serie/popular_serie_model.dart';
 import 'package:ifilms/models/serie/seasons_episode_model.dart';
@@ -17,7 +16,6 @@ class SerieRepository {
       final model = PopularSerieModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -28,7 +26,6 @@ class SerieRepository {
       final model = SerieModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -41,7 +38,6 @@ class SerieRepository {
       final model = SeasonsEpisodeModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print("F: $e");
       return Future.error('Error');
     }
   }
@@ -52,7 +48,6 @@ class SerieRepository {
       final model = YoutubeModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }
@@ -63,7 +58,6 @@ class SerieRepository {
       final model = CastModel.fromMap(response.data);
       return model;
     } catch (e) {
-      print(e);
       return Future.error('Error');
     }
   }

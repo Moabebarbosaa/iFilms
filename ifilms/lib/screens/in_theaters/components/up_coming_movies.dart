@@ -30,7 +30,6 @@ class UpComingMovies extends StatelessWidget {
               ),
               onTap: () {
                 _movieController.loadMovieScreen(mediaType.id);
-                print("ID MOVIE: ${mediaType.id}");
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => MovieDetailsScreen(),

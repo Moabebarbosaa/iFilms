@@ -25,13 +25,12 @@ class TrendingMovie extends StatelessWidget {
                     'https://image.tmdb.org/t/p/w500/' +
                         trendingMovie.posterPath,
                   ),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
       ),
       onTap: () {
         _movieController.loadMovieScreen(trendingMovie.id);
-        print(trendingMovie.id);
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => MovieDetailsScreen(),

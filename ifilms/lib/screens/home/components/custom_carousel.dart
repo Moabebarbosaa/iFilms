@@ -49,7 +49,6 @@ class CustomCarousel extends StatelessWidget {
                           if (obra.releaseDate != null) {
                             if (type == 'movie') {
                               _movieController.loadMovieScreen(obra.id);
-                              print("ID MOVIE: ${obra.id}");
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (_) => MovieDetailsScreen(),
@@ -58,7 +57,6 @@ class CustomCarousel extends StatelessWidget {
                             } else {
                               _serieController.loadSerieScreen(obra.id);
                               _serieController.setPage(0);
-                              print("ID SERIE: ${obra.id}");
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (_) => SerieDetailScreen(),
