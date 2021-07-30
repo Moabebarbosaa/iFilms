@@ -4,7 +4,7 @@ Aplicativo de informações sobre filmes e séries, onde você irá encontrar a 
 
 ### 🔧 Instalação
 
-https://play.google.com/store
+https://play.google.com/store/apps/details?id=br.com.ifilms
 
 ## 🛠️ Construído com
 
