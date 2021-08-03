@@ -1,7 +1,4 @@
 import 'dart:convert';
-import 'package:ifilms/models/movie_serie/production_company_model.dart';
-import 'package:ifilms/models/movie_serie/production_country_model.dart';
-import 'package:ifilms/models/movie/movie_spoken_language_model.dart';
 import 'package:ifilms/models/movie_serie/genre_model.dart';
 
 class MovieModel {
@@ -18,12 +15,9 @@ class MovieModel {
   final String overview;
   final double popularity;
   final String posterPath;
-  final List<ProductionCompanyModel> productionCompanies;
-  final List<ProductionCountryModel> productionCountries;
   final DateTime releaseDate;
   final int revenue;
   final int runtime;
-  final List<MovieSpokenLanguageModel> spokenLanguages;
   final String status;
   final String tagline;
   final String title;
@@ -45,12 +39,9 @@ class MovieModel {
     this.overview,
     this.popularity,
     this.posterPath,
-    this.productionCompanies,
-    this.productionCountries,
     this.releaseDate,
     this.revenue,
     this.runtime,
-    this.spokenLanguages,
     this.status,
     this.tagline,
     this.title,
@@ -80,23 +71,11 @@ class MovieModel {
       overview: json["overview"] == '' ? '...' : json["overview"],
       popularity: json["popularity"].toDouble(),
       posterPath: json["poster_path"],
-      productionCompanies: json["production_companies"] == null
-          ? null
-          : List<ProductionCompanyModel>.from(json["production_companies"]
-              .map((x) => ProductionCompanyModel.fromMap(x))),
-      productionCountries: json["production_countries"] == null
-          ? null
-          : List<ProductionCountryModel>.from(json["production_countries"]
-              .map((x) => ProductionCountryModel.fromMap(x))),
       releaseDate: json["release_date"] == null
           ? null
           : DateTime.parse(json["release_date"]),
       revenue: json["revenue"],
       runtime: json["runtime"],
-      spokenLanguages: json["spoken_languages"] == null
-          ? null
-          : List<MovieSpokenLanguageModel>.from(json["spoken_languages"]
-              .map((x) => MovieSpokenLanguageModel.fromMap(x))),
       status: json["status"],
       tagline: json["tagline"],
       title: json["title"],

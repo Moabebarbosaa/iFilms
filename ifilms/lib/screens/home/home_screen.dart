@@ -28,10 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
     listener: AdListener(),
   );
 
+  final BannerAd myBanner2 = BannerAd(
+    adUnitId: Platform.isAndroid
+        ? 'ca-app-pub-3122961190589601/5416710842' //ok
+        : 'ca-app-pub-3940256099942544/2934735716',
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: AdListener(),
+  );
+
   @override
   void initState() {
     super.initState();
     myBanner.load();
+    myBanner2.load();
   }
 
   @override
@@ -63,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               type: 'movie',
             ),
             Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10),
               alignment: Alignment.center,
               child: AdWidget(ad: myBanner),
               width: myBanner.size.width.toDouble(),
@@ -86,6 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
             CustomCarousel(
               obras: _popularController.series,
               type: 'serie',
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10),
+              alignment: Alignment.center,
+              child: AdWidget(ad: myBanner2),
+              width: myBanner2.size.width.toDouble(),
+              height: myBanner2.size.height.toDouble(),
             ),
           ],
         );
