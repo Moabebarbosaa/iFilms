@@ -1,11 +1,9 @@
 import 'package:ifilms/models/movie/movie_model.dart';
-import 'package:ifilms/models/movie_serie/video_model.dart';
 import 'package:ifilms/models/movie_serie/youtube_model.dart';
 import 'package:ifilms/models/movie_serie/cast_model.dart';
 import 'package:ifilms/models/movie/similar_movie_model.dart';
 import 'package:ifilms/repository/movie_repository.dart';
 import 'package:mobx/mobx.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 part 'movie_detail_store.g.dart';
 
@@ -39,9 +37,6 @@ abstract class _MovieDetailStore with Store {
   @observable
   int similarMovieCount = 0;
 
-  @observable
-  YoutubePlayerController youtubeController;
-
   @action
   Future<void> loadMovieScreen(int id) async {
     loadingMovieDetailScreen = true;
@@ -49,33 +44,8 @@ abstract class _MovieDetailStore with Store {
     await _fetchMovieById(id);
     await _fetchCastMovieById(id);
     await _fetchSimilarMovieById(id);
-    _setYoutubeKey();
+
     loadingMovieDetailScreen = false;
-  }
-
-  @action
-  void _setYoutubeKey() {
-    if (youtubeModel.videos.length > 0) {
-      _youtubeController(youtubeModel.videos[0].key);
-      errorYoutube = false;
-    } else {
-      errorYoutube = true;
-    }
-  }
-
-  @action
-  void _youtubeController(String key) {
-    youtubeController = YoutubePlayerController(
-      initialVideoId: key,
-      flags: YoutubePlayerFlags(
-        mute: false,
-        autoPlay: false,
-        disableDragSeek: false,
-        loop: true,
-        forceHD: true,
-        enableCaption: true,
-      ),
-    );
   }
 
   @action

@@ -52,14 +52,14 @@ class CustomSubtitle extends StatelessWidget {
               SizedBox(
                 height: 3,
               ),
-              CustomText(
-                text: releaseDate == null
-                    ? 'Em breve'
-                    : releaseDate.year.toString(),
-                corText: Colors.grey,
-                fontSize: 13,
-                textAlign: TextAlign.start,
-              ),
+              releaseDate == null
+                  ? Container()
+                  : CustomText(
+                      text: releaseDate.year.toString(),
+                      corText: Colors.grey,
+                      fontSize: 13,
+                      textAlign: TextAlign.start,
+                    ),
             ],
           ),
         ),

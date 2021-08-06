@@ -71,22 +71,6 @@ mixin _$SerieDetailStore on _SerieDetailStore, Store {
     });
   }
 
-  final _$youtubeControllerAtom =
-      Atom(name: '_SerieDetailStore.youtubeController');
-
-  @override
-  YoutubePlayerController get youtubeController {
-    _$youtubeControllerAtom.reportRead();
-    return super.youtubeController;
-  }
-
-  @override
-  set youtubeController(YoutubePlayerController value) {
-    _$youtubeControllerAtom.reportWrite(value, super.youtubeController, () {
-      super.youtubeController = value;
-    });
-  }
-
   final _$serieModelAtom = Atom(name: '_SerieDetailStore.serieModel');
 
   @override
@@ -287,35 +271,12 @@ mixin _$SerieDetailStore on _SerieDetailStore, Store {
   }
 
   @override
-  void _youtubeController(String key) {
-    final _$actionInfo = _$_SerieDetailStoreActionController.startAction(
-        name: '_SerieDetailStore._youtubeController');
-    try {
-      return super._youtubeController(key);
-    } finally {
-      _$_SerieDetailStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void _setYoutubeKey() {
-    final _$actionInfo = _$_SerieDetailStoreActionController.startAction(
-        name: '_SerieDetailStore._setYoutubeKey');
-    try {
-      return super._setYoutubeKey();
-    } finally {
-      _$_SerieDetailStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 castModel: ${castModel},
 similarSerieModel: ${similarSerieModel},
 youtubeModel: ${youtubeModel},
 seasonsEpisodeModel: ${seasonsEpisodeModel},
-youtubeController: ${youtubeController},
 serieModel: ${serieModel},
 loadingSerieDetailScreen: ${loadingSerieDetailScreen},
 loadingSeasons: ${loadingSeasons},

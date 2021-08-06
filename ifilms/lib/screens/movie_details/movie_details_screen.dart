@@ -10,8 +10,6 @@ import 'components/custom_details.dart';
 import 'components/custom_head.dart';
 import 'components/custom_overview.dart';
 import 'components/custom_recommend.dart';
-import 'components/custom_trailer.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final MovieDetailStore _movieDetailController = GetIt.I<MovieDetailStore>();
@@ -38,15 +36,11 @@ class MovieDetailsScreen extends StatelessWidget {
                       movieModel: _movieDetailController.movieModel,
                     ),
                     CustomOverview(
-                        overview: _movieDetailController.movieModel.overview),
+                      overview: _movieDetailController.movieModel.overview,
+                    ),
                     CustomButtons(
                       homepage: _movieDetailController.movieModel.homepage,
                     ),
-                    _movieDetailController.errorYoutube
-                        ? Container()
-                        : CustomTrailer(
-                            type: 'movie',
-                          ),
                     CustomCast(
                       castModel: _movieDetailController.castModel,
                     ),
@@ -55,15 +49,6 @@ class MovieDetailsScreen extends StatelessWidget {
                         : CustomRecommend(
                             similar: _movieDetailController.similarModel.movie,
                           ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('images/tmdb.png'))),
-                      ),
-                    ),
                   ],
                 );
         }),

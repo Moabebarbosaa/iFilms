@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:ifilms/components/custom_text.dart';
 import 'package:ifilms/screens/home/home_screen.dart';
 import 'package:ifilms/screens/in_theaters/in_theaters_screen.dart';
+import 'package:ifilms/screens/info/info_screen.dart';
 import 'package:ifilms/screens/offline/offline_screen.dart';
 import 'package:ifilms/screens/search/search_screen.dart';
 import 'package:ifilms/stores/connectivity_store.dart';
@@ -50,9 +51,14 @@ class _BaseScreenState extends State<BaseScreen> {
             ? null
             : AppBar(
                 backgroundColor: Color(0xFF12151D),
-                centerTitle:
-                    pageStore.page == 0 || pageStore.page == 1 ? true : false,
-                title: pageStore.page == 0 || pageStore.page == 1
+                centerTitle: pageStore.page == 0 ||
+                        pageStore.page == 1 ||
+                        pageStore.page == 3
+                    ? true
+                    : false,
+                title: pageStore.page == 0 ||
+                        pageStore.page == 1 ||
+                        pageStore.page == 3
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -84,6 +90,7 @@ class _BaseScreenState extends State<BaseScreen> {
             HomeScreen(),
             InTheatersScreen(),
             SearchScreen(),
+            InfoScreen()
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -97,7 +104,10 @@ class _BaseScreenState extends State<BaseScreen> {
               pageStore.title = 'iFilms';
             else if (p == 1)
               pageStore.title = 'Em Cartaz';
-            else if (p == 2) pageStore.title = 'Buscar';
+            else if (p == 2)
+              pageStore.title = 'Buscar';
+            else
+              pageStore.title = 'iFilms';
           },
           iconSize: 25,
           selectedFontSize: 12,
@@ -116,6 +126,11 @@ class _BaseScreenState extends State<BaseScreen> {
             BottomNavigationBarItem(
               label: 'Buscar',
               icon: Icon(Icons.search),
+              backgroundColor: Color(0xFF12151D),
+            ),
+            BottomNavigationBarItem(
+              label: 'Sobre',
+              icon: Icon(Icons.info_outline),
               backgroundColor: Color(0xFF12151D),
             ),
           ],

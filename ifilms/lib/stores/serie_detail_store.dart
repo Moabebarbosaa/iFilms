@@ -6,7 +6,6 @@ import 'package:ifilms/models/serie/similar_serie_model.dart';
 import 'package:ifilms/repository/serie_repository.dart';
 
 import 'package:mobx/mobx.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 part 'serie_detail_store.g.dart';
 
@@ -24,9 +23,6 @@ abstract class _SerieDetailStore with Store {
 
   @observable
   SeasonsEpisodeModel seasonsEpisodeModel;
-
-  @observable
-  YoutubePlayerController youtubeController;
 
   @observable
   SerieModel serieModel;
@@ -63,7 +59,6 @@ abstract class _SerieDetailStore with Store {
     await _fetchSerieById(id);
     await _fetchCastSerieById(id);
     await _fetchSimilarSerieById(id);
-    _setYoutubeKey();
 
     loadingSerieDetailScreen = false;
   }
@@ -101,21 +96,6 @@ abstract class _SerieDetailStore with Store {
   }
 
   @action
-  void _youtubeController(String key) {
-    youtubeController = YoutubePlayerController(
-      initialVideoId: key,
-      flags: YoutubePlayerFlags(
-        mute: false,
-        autoPlay: false,
-        disableDragSeek: false,
-        loop: true,
-        forceHD: true,
-        enableCaption: true,
-      ),
-    );
-  }
-
-  @action
   Future<void> _fetchTrailerSerieById(int id) async {
     try {
       final result = await SerieRepository().fetchTrailerSerieById(id);
@@ -123,16 +103,6 @@ abstract class _SerieDetailStore with Store {
       errorSerieDetailScreen = false;
     } catch (error) {
       errorSerieDetailScreen = true;
-    }
-  }
-
-  @action
-  void _setYoutubeKey() {
-    if (youtubeModel.videos.length > 0) {
-      _youtubeController(youtubeModel.videos[0].key);
-      errorYoutube = false;
-    } else {
-      errorYoutube = true;
     }
   }
 

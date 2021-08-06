@@ -14,13 +14,9 @@ class PopularSerieModel {
 
   factory PopularSerieModel.fromMap(Map<String, dynamic> json) {
     return PopularSerieModel(
-      series: List<SerieModel>.from(
-          json["results"].map((x) => SerieModel.fromMap(x))),
+      series: List<SerieModel>.from(json["results"].map((x) {
+        return SerieModel.fromMap(x);
+      })),
     );
-  }
-
-  @override
-  String toString() {
-    return 'PopularTVModel{series: $series}';
   }
 }

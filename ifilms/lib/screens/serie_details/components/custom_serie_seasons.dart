@@ -109,7 +109,7 @@ class CustomSerieTabSeasons extends StatelessWidget {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: ep.stillPath == null
-                                      ? AssetImage('images/em_breve.png')
+                                      ? AssetImage('images/not-found.png')
                                       : NetworkImage(
                                           'https://image.tmdb.org/t/p/w500/' +
                                               ep.stillPath,
@@ -122,7 +122,7 @@ class CustomSerieTabSeasons extends StatelessWidget {
                           Expanded(
                             child: CustomText(
                               text: ep.overview == ''
-                                  ? 'Em breve...'
+                                  ? 'Sem informações no momento.'
                                   : ep.overview,
                               corText: Colors.white,
                               textAlign: TextAlign.justify,

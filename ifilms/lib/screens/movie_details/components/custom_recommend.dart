@@ -21,7 +21,7 @@ class CustomRecommend extends StatelessWidget {
         CustomTopic(
           title: 'Filmes Similares',
           leftPadding: 20,
-          topPadding: 30,
+          topPadding: 10,
           rightPadding: 0,
           bottomPadding: 0,
         ),

@@ -84,9 +84,4 @@ class MovieModel {
       voteCount: json["vote_count"],
     );
   }
-
-  @override
-  String toString() {
-    return 'MovieModel{backdropPath: $backdropPath, genres: $genres, homepage: $homepage, id: $id, originalTitle: $originalTitle, posterPath: $posterPath, releaseDate: $releaseDate, runtime: $runtime, status: $status, title: $title, voteAverage: $voteAverage}';
-  }
 }

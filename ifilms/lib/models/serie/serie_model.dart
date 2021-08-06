@@ -74,7 +74,7 @@ class SerieModel {
           : List<CreatedByModel>.from(
               json["created_by"].map((x) => CreatedByModel.fromMap(x))),
       episodeRunTime: json['episode_run_time'],
-      releaseDate: json['first_air_date'] == ''
+      releaseDate: json['first_air_date'] == null
           ? null
           : DateTime.parse(json['first_air_date']),
       genres: json["genres"] == null
@@ -89,7 +89,7 @@ class SerieModel {
       lastEpisodeToAir: json['last_episode_to_air'] == null
           ? null
           : LastEpisodeToAirModel.fromMap(json['last_episode_to_air']),
-      title: json['name'],
+      title: json['name'] == null ? 'F' : json['name'],
       numberOfEpisodes: json['number_of_episodes'],
       numberOfSeasons: json['number_of_seasons'],
       originCountry: json['origin_country'],

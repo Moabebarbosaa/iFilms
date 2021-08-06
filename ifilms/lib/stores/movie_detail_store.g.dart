@@ -149,22 +149,6 @@ mixin _$MovieDetailStore on _MovieDetailStore, Store {
     });
   }
 
-  final _$youtubeControllerAtom =
-      Atom(name: '_MovieDetailStore.youtubeController');
-
-  @override
-  YoutubePlayerController get youtubeController {
-    _$youtubeControllerAtom.reportRead();
-    return super.youtubeController;
-  }
-
-  @override
-  set youtubeController(YoutubePlayerController value) {
-    _$youtubeControllerAtom.reportWrite(value, super.youtubeController, () {
-      super.youtubeController = value;
-    });
-  }
-
   final _$loadMovieScreenAsyncAction =
       AsyncAction('_MovieDetailStore.loadMovieScreen');
 
@@ -208,31 +192,6 @@ mixin _$MovieDetailStore on _MovieDetailStore, Store {
         .run(() => super._fetchSimilarMovieById(id));
   }
 
-  final _$_MovieDetailStoreActionController =
-      ActionController(name: '_MovieDetailStore');
-
-  @override
-  void _setYoutubeKey() {
-    final _$actionInfo = _$_MovieDetailStoreActionController.startAction(
-        name: '_MovieDetailStore._setYoutubeKey');
-    try {
-      return super._setYoutubeKey();
-    } finally {
-      _$_MovieDetailStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void _youtubeController(String key) {
-    final _$actionInfo = _$_MovieDetailStoreActionController.startAction(
-        name: '_MovieDetailStore._youtubeController');
-    try {
-      return super._youtubeController(key);
-    } finally {
-      _$_MovieDetailStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
     return '''
@@ -244,8 +203,7 @@ loadingMovieDetailScreen: ${loadingMovieDetailScreen},
 errorMovieDetailScreen: ${errorMovieDetailScreen},
 errorYoutube: ${errorYoutube},
 castCount: ${castCount},
-similarMovieCount: ${similarMovieCount},
-youtubeController: ${youtubeController}
+similarMovieCount: ${similarMovieCount}
     ''';
   }
 }

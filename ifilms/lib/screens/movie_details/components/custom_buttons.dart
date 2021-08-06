@@ -21,14 +21,19 @@ class CustomButtons extends StatelessWidget {
                 onSurface: Colors.grey,
                 elevation: 10,
               ),
-              label: Expanded(
-                child: CustomText(
-                  text: 'Onde assistir',
-                  fontSize: 16,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                ),
+              label: Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Expanded(
+                    child: CustomText(
+                      text: 'Onde assistir',
+                      fontSize: 16,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
               ),
               icon: Icon(
                 Icons.play_circle_fill,

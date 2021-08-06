@@ -10,6 +10,7 @@ import 'package:ifilms/screens/home/components/custom_carousel.dart';
 import 'package:ifilms/screens/home/components/custom_top20.dart';
 import 'package:ifilms/screens/home/components/trending_movie.dart';
 import 'package:ifilms/stores/popular_store.dart';
+import 'package:ifilms/stores/payment_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,30 +19,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PopularStore _popularController = GetIt.I<PopularStore>();
+  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
 
-  final BannerAd myBanner = BannerAd(
+  final BannerAd homeBanner = BannerAd(
     adUnitId: Platform.isAndroid
-        ? 'ca-app-pub-3122961190589601/4696879324' //ok
-        : 'ca-app-pub-3940256099942544/2934735716',
+        ? 'ca-app-pub-3122961190589601/1059281986'
+        : 'ca-app-pub-3122961190589601/1059281986',
     size: AdSize.banner,
     request: AdRequest(),
-    listener: AdListener(),
-  );
-
-  final BannerAd myBanner2 = BannerAd(
-    adUnitId: Platform.isAndroid
-        ? 'ca-app-pub-3122961190589601/5416710842' //ok
-        : 'ca-app-pub-3940256099942544/2934735716',
-    size: AdSize.banner,
-    request: AdRequest(),
-    listener: AdListener(),
+    listener: BannerAdListener(),
   );
 
   @override
   void initState() {
     super.initState();
-    myBanner.load();
-    myBanner2.load();
+    homeBanner.load();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    homeBanner.dispose();
   }
 
   @override
@@ -72,13 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
               obras: _popularController.movies,
               type: 'movie',
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-              alignment: Alignment.center,
-              child: AdWidget(ad: myBanner),
-              width: myBanner.size.width.toDouble(),
-              height: myBanner.size.height.toDouble(),
-            ),
+            for (var prod in paymentStore.products)
+              if (paymentStore.hasPurchased(prod.id) != null) ...[
+                Container()
+              ] else ...[
+                Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  alignment: Alignment.center,
+                  child: AdWidget(ad: homeBanner),
+                  width: homeBanner.size.width.toDouble(),
+                  height: homeBanner.size.height.toDouble(),
+                )
+              ],
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,13 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
             CustomCarousel(
               obras: _popularController.series,
               type: 'serie',
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-              alignment: Alignment.center,
-              child: AdWidget(ad: myBanner2),
-              width: myBanner2.size.width.toDouble(),
-              height: myBanner2.size.height.toDouble(),
             ),
           ],
         );

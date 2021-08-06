@@ -1,14 +1,41 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:ifilms/components/circular_progress.dart';
 import 'package:ifilms/screens/in_theaters/components/in_theaters_buttons.dart';
 import 'package:ifilms/screens/in_theaters/components/in_theaters_movies.dart';
 import 'package:ifilms/screens/in_theaters/components/up_coming_movies.dart';
 import 'package:ifilms/stores/in_theaters_store.dart';
+import 'package:ifilms/stores/payment_store.dart';
 
-class InTheatersScreen extends StatelessWidget {
+class InTheatersScreen extends StatefulWidget {
+  @override
+  _InTheatersScreenState createState() => _InTheatersScreenState();
+}
+
+class _InTheatersScreenState extends State<InTheatersScreen> {
   final InTheatersStore _inTheatersStore = GetIt.I<InTheatersStore>();
+  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
+
+  final BannerAd inTheatersBanner = BannerAd(
+    adUnitId: Platform.isAndroid
+        ? 'ca-app-pub-3122961190589601/8794301776'
+        : 'ca-app-pub-3122961190589601/8794301776',
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: BannerAdListener(),
+  );
+
+  bool enabledAd = true;
+
+  @override
+  void initState() {
+    super.initState();
+    inTheatersBanner.load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +48,18 @@ class InTheatersScreen extends StatelessWidget {
           return Column(
             children: [
               InTheatersButtons(),
+              for (var prod in paymentStore.products)
+                if (paymentStore.hasPurchased(prod.id) != null) ...[
+                  Container()
+                ] else ...[
+                  Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
+                    alignment: Alignment.center,
+                    child: AdWidget(ad: inTheatersBanner),
+                    width: inTheatersBanner.size.width.toDouble(),
+                    height: inTheatersBanner.size.height.toDouble(),
+                  )
+                ],
               _inTheatersStore.page == 0
                   ? InTheatersMovies()
                   : UpComingMovies(),
