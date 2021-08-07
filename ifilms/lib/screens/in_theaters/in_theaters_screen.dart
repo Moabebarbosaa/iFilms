@@ -9,6 +9,7 @@ import 'package:ifilms/screens/in_theaters/components/in_theaters_buttons.dart';
 import 'package:ifilms/screens/in_theaters/components/in_theaters_movies.dart';
 import 'package:ifilms/screens/in_theaters/components/up_coming_movies.dart';
 import 'package:ifilms/stores/in_theaters_store.dart';
+import 'package:ifilms/stores/payment_store.dart';
 
 class InTheatersScreen extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class InTheatersScreen extends StatefulWidget {
 
 class _InTheatersScreenState extends State<InTheatersScreen> {
   final InTheatersStore _inTheatersStore = GetIt.I<InTheatersStore>();
+  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
 
   final BannerAd inTheatersBanner = BannerAd(
     adUnitId: Platform.isAndroid
@@ -46,6 +48,18 @@ class _InTheatersScreenState extends State<InTheatersScreen> {
           return Column(
             children: [
               InTheatersButtons(),
+              for (var prod in paymentStore.products)
+                if (paymentStore.hasPurchased(prod.id) != null) ...[
+                  Container()
+                ] else ...[
+                  Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
+                    alignment: Alignment.center,
+                    child: AdWidget(ad: inTheatersBanner),
+                    width: inTheatersBanner.size.width.toDouble(),
+                    height: inTheatersBanner.size.height.toDouble(),
+                  )
+                ],
               _inTheatersStore.page == 0
                   ? InTheatersMovies()
                   : UpComingMovies(),
