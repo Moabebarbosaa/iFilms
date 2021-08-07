@@ -5,7 +5,6 @@ import 'package:get_it/get_it.dart';
 import 'package:ifilms/components/custom_text.dart';
 import 'package:ifilms/screens/home/home_screen.dart';
 import 'package:ifilms/screens/in_theaters/in_theaters_screen.dart';
-import 'package:ifilms/screens/info/info_screen.dart';
 import 'package:ifilms/screens/offline/offline_screen.dart';
 import 'package:ifilms/screens/search/search_screen.dart';
 import 'package:ifilms/stores/connectivity_store.dart';
@@ -86,12 +85,7 @@ class _BaseScreenState extends State<BaseScreen> {
         body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: [
-            HomeScreen(),
-            InTheatersScreen(),
-            SearchScreen(),
-            InfoScreen()
-          ],
+          children: [HomeScreen(), InTheatersScreen(), SearchScreen()],
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
@@ -126,11 +120,6 @@ class _BaseScreenState extends State<BaseScreen> {
             BottomNavigationBarItem(
               label: 'Buscar',
               icon: Icon(Icons.search),
-              backgroundColor: Color(0xFF12151D),
-            ),
-            BottomNavigationBarItem(
-              label: 'Sobre',
-              icon: Icon(Icons.info_outline),
               backgroundColor: Color(0xFF12151D),
             ),
           ],

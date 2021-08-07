@@ -10,7 +10,6 @@ import 'package:ifilms/screens/home/components/custom_carousel.dart';
 import 'package:ifilms/screens/home/components/custom_top20.dart';
 import 'package:ifilms/screens/home/components/trending_movie.dart';
 import 'package:ifilms/stores/popular_store.dart';
-import 'package:ifilms/stores/payment_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PopularStore _popularController = GetIt.I<PopularStore>();
-  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
 
   final BannerAd homeBanner = BannerAd(
     adUnitId: Platform.isAndroid
@@ -34,12 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     homeBanner.load();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    homeBanner.dispose();
   }
 
   @override
@@ -70,18 +62,13 @@ class _HomeScreenState extends State<HomeScreen> {
               obras: _popularController.movies,
               type: 'movie',
             ),
-            for (var prod in paymentStore.products)
-              if (paymentStore.hasPurchased(prod.id) != null) ...[
-                Container()
-              ] else ...[
-                Container(
-                  margin: EdgeInsets.only(top: 10, bottom: 10),
-                  alignment: Alignment.center,
-                  child: AdWidget(ad: homeBanner),
-                  width: homeBanner.size.width.toDouble(),
-                  height: homeBanner.size.height.toDouble(),
-                )
-              ],
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10),
+              alignment: Alignment.center,
+              child: AdWidget(ad: homeBanner),
+              width: homeBanner.size.width.toDouble(),
+              height: homeBanner.size.height.toDouble(),
+            ),
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
