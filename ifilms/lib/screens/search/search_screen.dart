@@ -9,7 +9,6 @@ import 'package:ifilms/components/custom_topic.dart';
 import 'package:ifilms/screens/search/components/genre_buttons.dart';
 import 'package:ifilms/screens/search/components/genre_grid.dart';
 import 'package:ifilms/screens/search/components/search_text_field.dart';
-import 'package:ifilms/stores/payment_store.dart';
 import 'package:ifilms/stores/search_store.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -19,11 +18,10 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final SearchStore _searchStore = GetIt.I<SearchStore>();
-  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
 
   final BannerAd searchBanner = BannerAd(
     adUnitId: Platform.isAndroid
-        ? 'ca-app-pub-3122961190589601/8826091367' //ok
+        ? 'ca-app-pub-3122961190589601/8826091367'
         : 'ca-app-pub-3122961190589601/8826091367',
     size: AdSize.banner,
     request: AdRequest(),
@@ -57,18 +55,13 @@ class _SearchScreenState extends State<SearchScreen> {
                           rightPadding: 0,
                         ),
                         GenreButtons(),
-                        for (var prod in paymentStore.products)
-                          if (paymentStore.hasPurchased(prod.id) != null) ...[
-                            Container()
-                          ] else ...[
-                            Container(
-                              margin: EdgeInsets.only(top: 10, bottom: 10),
-                              alignment: Alignment.center,
-                              child: AdWidget(ad: searchBanner),
-                              width: searchBanner.size.width.toDouble(),
-                              height: searchBanner.size.height.toDouble(),
-                            )
-                          ],
+                        Container(
+                          margin: EdgeInsets.only(top: 10, bottom: 10),
+                          alignment: Alignment.center,
+                          child: AdWidget(ad: searchBanner),
+                          width: searchBanner.size.width.toDouble(),
+                          height: searchBanner.size.height.toDouble(),
+                        ),
                         _searchStore.page == 0
                             ? GenreGrid(
                                 mediaType: 'Movie',

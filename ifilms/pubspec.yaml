@@ -42,7 +42,6 @@ dependencies:
   google_mobile_ads: ^0.13.3
   share: ^2.0.4
   flutter_email_sender: ^5.0.2
-  in_app_purchase: ^0.4.0
 
 
 dev_dependencies:

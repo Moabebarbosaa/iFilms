@@ -10,7 +10,6 @@ import 'package:ifilms/screens/home/components/custom_carousel.dart';
 import 'package:ifilms/screens/home/components/custom_top20.dart';
 import 'package:ifilms/screens/home/components/trending_movie.dart';
 import 'package:ifilms/stores/popular_store.dart';
-import 'package:ifilms/stores/payment_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PopularStore _popularController = GetIt.I<PopularStore>();
-  final PaymentStore paymentStore = GetIt.I<PaymentStore>();
 
   final BannerAd homeBanner = BannerAd(
     adUnitId: Platform.isAndroid
@@ -27,19 +25,28 @@ class _HomeScreenState extends State<HomeScreen> {
         : 'ca-app-pub-3122961190589601/1059281986',
     size: AdSize.banner,
     request: AdRequest(),
-    listener: BannerAdListener(),
+    listener: BannerAdListener(
+        // // Called when an ad is successfully received.
+        // onAdLoaded: (Ad ad) => print('Ad loaded.'),
+        // // Called when an ad request failed.
+        // onAdFailedToLoad: (Ad ad, LoadAdError error) {
+        //   // Dispose the ad here to free resources.
+        //   ad.dispose();
+        //   print('Ad failed to load: $error');
+        // },
+        // // Called when an ad opens an overlay that covers the screen.
+        // onAdOpened: (Ad ad) => print('Ad opened.'),
+        // // Called when an ad removes an overlay that covers the screen.
+        // onAdClosed: (Ad ad) => print('Ad closed.'),
+        // // Called when an impression occurs on the ad.
+        // onAdImpression: (Ad ad) => print('Ad impression.'),
+        ),
   );
 
   @override
   void initState() {
     super.initState();
     homeBanner.load();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    homeBanner.dispose();
   }
 
   @override
@@ -70,18 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
               obras: _popularController.movies,
               type: 'movie',
             ),
-            for (var prod in paymentStore.products)
-              if (paymentStore.hasPurchased(prod.id) != null) ...[
-                Container()
-              ] else ...[
-                Container(
-                  margin: EdgeInsets.only(top: 10, bottom: 10),
-                  alignment: Alignment.center,
-                  child: AdWidget(ad: homeBanner),
-                  width: homeBanner.size.width.toDouble(),
-                  height: homeBanner.size.height.toDouble(),
-                )
-              ],
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10),
+              alignment: Alignment.center,
+              child: AdWidget(
+                ad: homeBanner,
+              ),
+              width: homeBanner.size.width.toDouble(),
+              height: homeBanner.size.height.toDouble(),
+            ),
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

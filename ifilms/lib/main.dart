@@ -7,17 +7,21 @@ import 'package:ifilms/stores/in_theaters_store.dart';
 import 'package:ifilms/stores/movie_detail_store.dart';
 import 'package:ifilms/stores/popular_store.dart';
 import 'package:ifilms/stores/page_store.dart';
-import 'package:ifilms/stores/payment_store.dart';
 import 'package:ifilms/stores/search_store.dart';
 import 'package:ifilms/stores/serie_detail_store.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
 
 void main() async {
-  InAppPurchaseConnection.enablePendingPurchases();
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  setupLocators();
 
+  // RequestConfiguration config = RequestConfiguration(
+  //   maxAdContentRating: MaxAdContentRating.g,
+  //   tagForChildDirectedTreatment: TagForChildDirectedTreatment.yes,
+  // );
+
+  // MobileAds.instance.updateRequestConfiguration(config);
+
+  setupLocators();
   runApp(MyApp());
 }
 
@@ -29,27 +33,9 @@ void setupLocators() {
   GetIt.I.registerSingleton(SerieDetailStore());
   GetIt.I.registerSingleton(InTheatersStore());
   GetIt.I.registerSingleton(SearchStore());
-  GetIt.I.registerSingleton(PaymentStore());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    GetIt.I<PaymentStore>().initialize();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    GetIt.I<PaymentStore>().subscription.cancel();
-    super.dispose();
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

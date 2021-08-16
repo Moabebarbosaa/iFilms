@@ -41,6 +41,7 @@ abstract class _PopularStore with Store {
       errorPopularScreen = false;
     } catch (e) {
       errorPopularScreen = true;
+      loadScreen();
       return e;
     }
   }
@@ -54,6 +55,7 @@ abstract class _PopularStore with Store {
       errorPopularScreen = false;
     } catch (e) {
       errorPopularScreen = true;
+      loadScreen();
       return e;
     }
   }
@@ -67,6 +69,7 @@ abstract class _PopularStore with Store {
       errorPopularScreen = false;
     } catch (e) {
       errorPopularScreen = true;
+      loadScreen();
     }
   }
 
