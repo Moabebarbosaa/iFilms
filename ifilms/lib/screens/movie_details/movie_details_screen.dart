@@ -10,6 +10,7 @@ import 'components/custom_details.dart';
 import 'components/custom_head.dart';
 import 'components/custom_overview.dart';
 import 'components/custom_recommend.dart';
+import 'components/custom_trailer.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final MovieDetailStore _movieDetailController = GetIt.I<MovieDetailStore>();
@@ -41,6 +42,12 @@ class MovieDetailsScreen extends StatelessWidget {
                     CustomButtons(
                       homepage: _movieDetailController.movieModel.homepage,
                     ),
+                    _movieDetailController.youtubeModel.videos.isEmpty
+                        ? Container()
+                        : CustomTrailer(
+                            youtubeModel: _movieDetailController.youtubeModel,
+                            photo: _movieDetailController.movieModel.posterPath,
+                          ),
                     CustomCast(
                       castModel: _movieDetailController.castModel,
                     ),

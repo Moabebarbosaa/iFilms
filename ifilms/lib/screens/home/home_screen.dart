@@ -19,28 +19,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final PopularStore _popularController = GetIt.I<PopularStore>();
 
+  bool errorAd = false;
+
   final BannerAd homeBanner = BannerAd(
     adUnitId: Platform.isAndroid
-        ? 'ca-app-pub-3122961190589601/1059281986'
+        ? 'ca-app-pub-3122961190589601/8617167796'
         : 'ca-app-pub-3122961190589601/1059281986',
     size: AdSize.banner,
     request: AdRequest(),
-    listener: BannerAdListener(
-        // // Called when an ad is successfully received.
-        // onAdLoaded: (Ad ad) => print('Ad loaded.'),
-        // // Called when an ad request failed.
-        // onAdFailedToLoad: (Ad ad, LoadAdError error) {
-        //   // Dispose the ad here to free resources.
-        //   ad.dispose();
-        //   print('Ad failed to load: $error');
-        // },
-        // // Called when an ad opens an overlay that covers the screen.
-        // onAdOpened: (Ad ad) => print('Ad opened.'),
-        // // Called when an ad removes an overlay that covers the screen.
-        // onAdClosed: (Ad ad) => print('Ad closed.'),
-        // // Called when an impression occurs on the ad.
-        // onAdImpression: (Ad ad) => print('Ad impression.'),
-        ),
+    listener: BannerAdListener(),
   );
 
   @override

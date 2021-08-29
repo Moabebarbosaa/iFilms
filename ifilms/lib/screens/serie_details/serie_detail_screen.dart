@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:ifilms/components/circular_progress.dart';
 import 'package:ifilms/screens/movie_details/components/custom_buttons.dart';
 import 'package:ifilms/screens/movie_details/components/custom_cast.dart';
+import 'package:ifilms/screens/movie_details/components/custom_trailer.dart';
 import 'package:ifilms/screens/serie_details/components/custom_serie_details.dart';
 import 'package:ifilms/screens/serie_details/components/custom_serie_head.dart';
 import 'package:ifilms/screens/serie_details/components/custom_serie_seasons.dart';
@@ -33,6 +34,12 @@ class SerieDetailScreen extends StatelessWidget {
                 CustomSerieHead(serieModel: _serieController.serieModel),
                 CustomSerieDetails(serieModel: _serieController.serieModel),
                 CustomButtons(homepage: _serieController.serieModel.homepage),
+                _serieController.youtubeModel.videos.isEmpty
+                    ? Container()
+                    : CustomTrailer(
+                        youtubeModel: _serieController.youtubeModel,
+                        photo: _serieController.serieModel.posterPath,
+                      ),
                 CustomSerieTabSeasons(),
                 SizedBox(height: 20),
                 CustomCast(castModel: _serieController.castModel),

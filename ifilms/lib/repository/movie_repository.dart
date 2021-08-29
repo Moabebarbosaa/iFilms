@@ -54,6 +54,7 @@ class MovieRepository {
     try {
       final response = await _dio.get('/movie/$movieId/videos?&language=pt-BR');
       final model = YoutubeModel.fromMap(response.data);
+      print(model.videos);
       return model;
     } catch (e) {
       return Future.error('Error');
