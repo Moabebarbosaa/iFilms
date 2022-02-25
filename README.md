@@ -19,15 +19,13 @@ https://play.google.com/store/apps/details?id=br.com.ifilms
 
 ## ✒️ Autores
 
-* **Moabe Barbosa Alves** - *Fez tudo :)* - [LinkedIn](https://www.linkedin.com/in/moabe-barbosa-72210a191/)
+* **Moabe Barbosa Alves** - [LinkedIn](https://www.linkedin.com/in/moabe-barbosa-72210a191/)
 
 ## 📄 Licença
 
 Este projeto está sob a licença - veja o arquivo [LICENSE.md](https://moabebarbosa.blogspot.com/2021/07/privacy-policy-para-idioma-portugues.html) para detalhes.
 
-## 🎁 "É melhor você tentar algo, vê-lo não funcionar e aprender com isso, do que não fazer nada." Mark Zuckerberg
 
-* Mas tomara que funcione! 🤓🍺.
 
 
 
