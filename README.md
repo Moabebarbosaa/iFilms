@@ -15,7 +15,7 @@ https://play.google.com/store/apps/details?id=br.com.ifilms
 
 ## 📌 Versão
 
-* v2.0.2 - Primeira versão do aplicativo 
+* v2.0.2 
 
 ## ✒️ Autores
 
