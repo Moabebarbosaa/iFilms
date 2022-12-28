@@ -25,5 +25,12 @@ linter:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    # This is a workaround, while there is still no solution for the current Freezed version https://github.com/rrousselGit/freezed/issues/488
+    invalid_annotation_target: ignore
+    unused_element: ignore
+    constant_identifier_names: ignore
