@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ifilms/src/flutter_base.dart';
+import 'package:ifilms/src/app.dart';
 
 void main() {
-  runApp(const ProviderScope(child: FlutterBase()));
+  runApp(const ProviderScope(child: IFilmsApp()));
 }
