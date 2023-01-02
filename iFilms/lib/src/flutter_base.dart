@@ -21,8 +21,9 @@ class _FlutterBaseState extends State<FlutterBase> {
       theme: FlutterBaseTheme.data(context),
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
-      builder: (context, child) => Env.name != Envs.PRODUCTION
-          ? Env.name.isNotEmpty
+      builder: (context, child) => Env.name == Envs.PRODUCTION
+          ? child!
+          : Env.name.isNotEmpty
               ? Banner(
                   message: Env.name.toString(),
                   textDirection: TextDirection.ltr,
@@ -34,8 +35,7 @@ class _FlutterBaseState extends State<FlutterBase> {
                   textDirection: TextDirection.ltr,
                   location: BannerLocation.topStart,
                   child: child,
-                )
-          : child!,
+                ),
     );
   }
 }

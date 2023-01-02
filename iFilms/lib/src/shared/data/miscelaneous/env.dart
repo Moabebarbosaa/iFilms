@@ -3,6 +3,7 @@ class Env {
 }
 
 class Envs {
+  static const DEV = 'DEV';
   static const STAGING = 'STAGING';
   static const PRODUCTION = 'PRODUCTION';
 }
