@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ifilms/src/home/presentation/dummies/home/home_screen.dart';
-import 'package:ifilms/src/home/presentation/dummies/onboarding/splash_screen.dart';
-import 'package:ifilms/src/home/presentation/smarties/home_smart_view.dart';
-
-import 'home/routes/home_routes.dart';
+import 'base/presentation/dummies/base_screen.dart';
+import 'base/presentation/dummies/splash_screen.dart';
+import 'base/presentation/smarties/base_smart_view.dart';
+import 'base/routes/base_routes.dart';
 import 'app_routes.dart';
 
 const String empty = '';
@@ -18,15 +17,15 @@ const Map<String, dynamic> routeHideBottomNavMetadata = {
   routes: <AutoRoute>[
     AutoRoute(
       path: AppRoutes.init,
-      page: HomeSmartView,
+      page: BaseSmartView,
       children: [
         AutoRoute(
-          path: HomeRoutes.splash,
+          path: BaseRoutes.splash,
           page: SplashScreen,
         ),
         AutoRoute(
-          path: HomeRoutes.home,
-          page: HomeScreen,
+          path: BaseRoutes.home,
+          page: BaseScreen,
         ),
       ],
     ),

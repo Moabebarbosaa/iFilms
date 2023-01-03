@@ -14,9 +14,9 @@
 import 'package:auto_route/auto_route.dart' as _i4;
 import 'package:flutter/material.dart' as _i5;
 
-import 'home/presentation/dummies/home/home_screen.dart' as _i3;
-import 'home/presentation/dummies/onboarding/splash_screen.dart' as _i2;
-import 'home/presentation/smarties/home_smart_view.dart' as _i1;
+import 'base/presentation/dummies/base_screen.dart' as _i3;
+import 'base/presentation/dummies/splash_screen.dart' as _i2;
+import 'base/presentation/smarties/base_smart_view.dart' as _i1;
 
 class AppRouter extends _i4.RootStackRouter {
   AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])
@@ -24,10 +24,10 @@ class AppRouter extends _i4.RootStackRouter {
 
   @override
   final Map<String, _i4.PageFactory> pagesMap = {
-    HomeSmartViewRoute.name: (routeData) {
+    BaseSmartViewRoute.name: (routeData) {
       return _i4.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomeSmartView(),
+        child: const _i1.BaseSmartView(),
         transitionsBuilder: _i4.TransitionsBuilders.slideLeft,
         durationInMilliseconds: 200,
         opaque: true,
@@ -44,10 +44,10 @@ class AppRouter extends _i4.RootStackRouter {
         barrierDismissible: false,
       );
     },
-    HomeScreenRoute.name: (routeData) {
+    BaseScreenRoute.name: (routeData) {
       return _i4.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i3.HomeScreen(),
+        child: const _i3.BaseScreen(),
         transitionsBuilder: _i4.TransitionsBuilders.slideLeft,
         durationInMilliseconds: 200,
         opaque: true,
@@ -59,18 +59,18 @@ class AppRouter extends _i4.RootStackRouter {
   @override
   List<_i4.RouteConfig> get routes => [
         _i4.RouteConfig(
-          HomeSmartViewRoute.name,
+          BaseSmartViewRoute.name,
           path: '/',
           children: [
             _i4.RouteConfig(
               SplashScreenRoute.name,
               path: 'splash',
-              parent: HomeSmartViewRoute.name,
+              parent: BaseSmartViewRoute.name,
             ),
             _i4.RouteConfig(
-              HomeScreenRoute.name,
+              BaseScreenRoute.name,
               path: 'home',
-              parent: HomeSmartViewRoute.name,
+              parent: BaseSmartViewRoute.name,
             ),
           ],
         )
@@ -78,16 +78,16 @@ class AppRouter extends _i4.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.HomeSmartView]
-class HomeSmartViewRoute extends _i4.PageRouteInfo<void> {
-  const HomeSmartViewRoute({List<_i4.PageRouteInfo>? children})
+/// [_i1.BaseSmartView]
+class BaseSmartViewRoute extends _i4.PageRouteInfo<void> {
+  const BaseSmartViewRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          HomeSmartViewRoute.name,
+          BaseSmartViewRoute.name,
           path: '/',
           initialChildren: children,
         );
 
-  static const String name = 'HomeSmartViewRoute';
+  static const String name = 'BaseSmartViewRoute';
 }
 
 /// generated route for
@@ -103,13 +103,13 @@ class SplashScreenRoute extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomeScreen]
-class HomeScreenRoute extends _i4.PageRouteInfo<void> {
-  const HomeScreenRoute()
+/// [_i3.BaseScreen]
+class BaseScreenRoute extends _i4.PageRouteInfo<void> {
+  const BaseScreenRoute()
       : super(
-          HomeScreenRoute.name,
+          BaseScreenRoute.name,
           path: 'home',
         );
 
-  static const String name = 'HomeScreenRoute';
+  static const String name = 'BaseScreenRoute';
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../shared/design_system/assets/flutter_base_images.dart';
-import '../../../../shared/design_system/tokens/color_tokens.dart';
-import '../../../../shared/design_system/widgets/hero_app_name.dart';
+import '../../../shared/design_system/assets/flutter_base_images.dart';
+import '../../../shared/design_system/tokens/color_tokens.dart';
+import '../../../shared/design_system/widgets/hero_app_name.dart';
 
 const Duration _FADE_DURATION = Duration(milliseconds: 1200);
 const Duration _SLIDE_DURATION = Duration(milliseconds: 600);

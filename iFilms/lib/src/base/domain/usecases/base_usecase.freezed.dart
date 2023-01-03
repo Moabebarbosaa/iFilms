@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'home_usecase.dart';
+part of 'base_usecase.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,30 +15,30 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HomeState {
-  HomeFlow get flow => throw _privateConstructorUsedError;
+mixin _$BaseState {
+  BaseFlow get flow => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith =>
+  $BaseStateCopyWith<BaseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
-  $Res call({HomeFlow flow});
+abstract class $BaseStateCopyWith<$Res> {
+  factory $BaseStateCopyWith(BaseState value, $Res Function(BaseState) then) =
+      _$BaseStateCopyWithImpl<$Res>;
+  $Res call({BaseFlow flow});
 
-  $HomeFlowCopyWith<$Res> get flow;
+  $BaseFlowCopyWith<$Res> get flow;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$BaseStateCopyWithImpl<$Res> implements $BaseStateCopyWith<$Res> {
+  _$BaseStateCopyWithImpl(this._value, this._then);
 
-  final HomeState _value;
+  final BaseState _value;
   // ignore: unused_field
-  final $Res Function(HomeState) _then;
+  final $Res Function(BaseState) _then;
 
   @override
   $Res call({
@@ -48,71 +48,71 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
       flow: flow == freezed
           ? _value.flow
           : flow // ignore: cast_nullable_to_non_nullable
-              as HomeFlow,
+              as BaseFlow,
     ));
   }
 
   @override
-  $HomeFlowCopyWith<$Res> get flow {
-    return $HomeFlowCopyWith<$Res>(_value.flow, (value) {
+  $BaseFlowCopyWith<$Res> get flow {
+    return $BaseFlowCopyWith<$Res>(_value.flow, (value) {
       return _then(_value.copyWith(flow: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$$_HomeStateCopyWith(
-          _$_HomeState value, $Res Function(_$_HomeState) then) =
-      __$$_HomeStateCopyWithImpl<$Res>;
+abstract class _$$_BaseStateCopyWith<$Res> implements $BaseStateCopyWith<$Res> {
+  factory _$$_BaseStateCopyWith(
+          _$_BaseState value, $Res Function(_$_BaseState) then) =
+      __$$_BaseStateCopyWithImpl<$Res>;
   @override
-  $Res call({HomeFlow flow});
+  $Res call({BaseFlow flow});
 
   @override
-  $HomeFlowCopyWith<$Res> get flow;
+  $BaseFlowCopyWith<$Res> get flow;
 }
 
 /// @nodoc
-class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$$_HomeStateCopyWith<$Res> {
-  __$$_HomeStateCopyWithImpl(
-      _$_HomeState _value, $Res Function(_$_HomeState) _then)
-      : super(_value, (v) => _then(v as _$_HomeState));
+class __$$_BaseStateCopyWithImpl<$Res> extends _$BaseStateCopyWithImpl<$Res>
+    implements _$$_BaseStateCopyWith<$Res> {
+  __$$_BaseStateCopyWithImpl(
+      _$_BaseState _value, $Res Function(_$_BaseState) _then)
+      : super(_value, (v) => _then(v as _$_BaseState));
 
   @override
-  _$_HomeState get _value => super._value as _$_HomeState;
+  _$_BaseState get _value => super._value as _$_BaseState;
 
   @override
   $Res call({
     Object? flow = freezed,
   }) {
-    return _then(_$_HomeState(
+    return _then(_$_BaseState(
       flow: flow == freezed
           ? _value.flow
           : flow // ignore: cast_nullable_to_non_nullable
-              as HomeFlow,
+              as BaseFlow,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_HomeState implements _HomeState {
-  const _$_HomeState({required this.flow});
+class _$_BaseState implements _BaseState {
+  const _$_BaseState({required this.flow});
 
   @override
-  final HomeFlow flow;
+  final BaseFlow flow;
 
   @override
   String toString() {
-    return 'HomeState(flow: $flow)';
+    return 'BaseState(flow: $flow)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HomeState &&
+            other is _$_BaseState &&
             const DeepCollectionEquality().equals(other.flow, flow));
   }
 
@@ -122,76 +122,76 @@ class _$_HomeState implements _HomeState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+  _$$_BaseStateCopyWith<_$_BaseState> get copyWith =>
+      __$$_BaseStateCopyWithImpl<_$_BaseState>(this, _$identity);
 }
 
-abstract class _HomeState implements HomeState {
-  const factory _HomeState({required final HomeFlow flow}) = _$_HomeState;
+abstract class _BaseState implements BaseState {
+  const factory _BaseState({required final BaseFlow flow}) = _$_BaseState;
 
   @override
-  HomeFlow get flow;
+  BaseFlow get flow;
   @override
   @JsonKey(ignore: true)
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+  _$$_BaseStateCopyWith<_$_BaseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$HomeFlow {
+mixin _$BaseFlow {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() splash,
-    required TResult Function() home,
+    required TResult Function() base,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Splash value) splash,
-    required TResult Function(Home value) home,
+    required TResult Function(Base value) base,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeFlowCopyWith<$Res> {
-  factory $HomeFlowCopyWith(HomeFlow value, $Res Function(HomeFlow) then) =
-      _$HomeFlowCopyWithImpl<$Res>;
+abstract class $BaseFlowCopyWith<$Res> {
+  factory $BaseFlowCopyWith(BaseFlow value, $Res Function(BaseFlow) then) =
+      _$BaseFlowCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HomeFlowCopyWithImpl<$Res> implements $HomeFlowCopyWith<$Res> {
-  _$HomeFlowCopyWithImpl(this._value, this._then);
+class _$BaseFlowCopyWithImpl<$Res> implements $BaseFlowCopyWith<$Res> {
+  _$BaseFlowCopyWithImpl(this._value, this._then);
 
-  final HomeFlow _value;
+  final BaseFlow _value;
   // ignore: unused_field
-  final $Res Function(HomeFlow) _then;
+  final $Res Function(BaseFlow) _then;
 }
 
 /// @nodoc
@@ -201,7 +201,7 @@ abstract class _$$SplashCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SplashCopyWithImpl<$Res> extends _$HomeFlowCopyWithImpl<$Res>
+class __$$SplashCopyWithImpl<$Res> extends _$BaseFlowCopyWithImpl<$Res>
     implements _$$SplashCopyWith<$Res> {
   __$$SplashCopyWithImpl(_$Splash _value, $Res Function(_$Splash) _then)
       : super(_value, (v) => _then(v as _$Splash));
@@ -217,7 +217,7 @@ class _$Splash implements Splash {
 
   @override
   String toString() {
-    return 'HomeFlow.splash()';
+    return 'BaseFlow.splash()';
   }
 
   @override
@@ -233,7 +233,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() splash,
-    required TResult Function() home,
+    required TResult Function() base,
   }) {
     return splash();
   }
@@ -242,7 +242,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
   }) {
     return splash?.call();
   }
@@ -251,7 +251,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
     required TResult orElse(),
   }) {
     if (splash != null) {
@@ -264,7 +264,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Splash value) splash,
-    required TResult Function(Home value) home,
+    required TResult Function(Base value) base,
   }) {
     return splash(this);
   }
@@ -273,7 +273,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
   }) {
     return splash?.call(this);
   }
@@ -282,7 +282,7 @@ class _$Splash implements Splash {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
     required TResult orElse(),
   }) {
     if (splash != null) {
@@ -292,40 +292,40 @@ class _$Splash implements Splash {
   }
 }
 
-abstract class Splash implements HomeFlow {
+abstract class Splash implements BaseFlow {
   const factory Splash() = _$Splash;
 }
 
 /// @nodoc
-abstract class _$$HomeCopyWith<$Res> {
-  factory _$$HomeCopyWith(_$Home value, $Res Function(_$Home) then) =
-      __$$HomeCopyWithImpl<$Res>;
+abstract class _$$BaseCopyWith<$Res> {
+  factory _$$BaseCopyWith(_$Base value, $Res Function(_$Base) then) =
+      __$$BaseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HomeCopyWithImpl<$Res> extends _$HomeFlowCopyWithImpl<$Res>
-    implements _$$HomeCopyWith<$Res> {
-  __$$HomeCopyWithImpl(_$Home _value, $Res Function(_$Home) _then)
-      : super(_value, (v) => _then(v as _$Home));
+class __$$BaseCopyWithImpl<$Res> extends _$BaseFlowCopyWithImpl<$Res>
+    implements _$$BaseCopyWith<$Res> {
+  __$$BaseCopyWithImpl(_$Base _value, $Res Function(_$Base) _then)
+      : super(_value, (v) => _then(v as _$Base));
 
   @override
-  _$Home get _value => super._value as _$Home;
+  _$Base get _value => super._value as _$Base;
 }
 
 /// @nodoc
 
-class _$Home implements Home {
-  const _$Home();
+class _$Base implements Base {
+  const _$Base();
 
   @override
   String toString() {
-    return 'HomeFlow.home()';
+    return 'BaseFlow.base()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Home);
+        (other.runtimeType == runtimeType && other is _$Base);
   }
 
   @override
@@ -335,29 +335,29 @@ class _$Home implements Home {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() splash,
-    required TResult Function() home,
+    required TResult Function() base,
   }) {
-    return home();
+    return base();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
   }) {
-    return home?.call();
+    return base?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? splash,
-    TResult Function()? home,
+    TResult Function()? base,
     required TResult orElse(),
   }) {
-    if (home != null) {
-      return home();
+    if (base != null) {
+      return base();
     }
     return orElse();
   }
@@ -366,34 +366,34 @@ class _$Home implements Home {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Splash value) splash,
-    required TResult Function(Home value) home,
+    required TResult Function(Base value) base,
   }) {
-    return home(this);
+    return base(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
   }) {
-    return home?.call(this);
+    return base?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Splash value)? splash,
-    TResult Function(Home value)? home,
+    TResult Function(Base value)? base,
     required TResult orElse(),
   }) {
-    if (home != null) {
-      return home(this);
+    if (base != null) {
+      return base(this);
     }
     return orElse();
   }
 }
 
-abstract class Home implements HomeFlow {
-  const factory Home() = _$Home;
+abstract class Base implements BaseFlow {
+  const factory Base() = _$Base;
 }
