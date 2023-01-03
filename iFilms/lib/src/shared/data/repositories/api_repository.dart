@@ -3,7 +3,6 @@ import 'package:convenience_types/convenience_types.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../sample_SN_RP/domain/forms/sign_in_form.dart';
 import '../../domain/models/api_state_model.dart';
 
 class ApiRepository extends StateNotifier<ApiState> {
@@ -169,28 +168,28 @@ class ApiRepository extends StateNotifier<ApiState> {
     }
   }
 
-  Future<Result<String>> signIn(SignInForm form) async {
-    try {
-      await Future.delayed(
-        const Duration(milliseconds: 1500),
-      );
-      state = const Authenticated();
+  // Future<Result<String>> signIn(SignInForm form) async {
+  //   try {
+  //     await Future.delayed(
+  //       const Duration(milliseconds: 1500),
+  //     );
+  //     state = const Authenticated();
 
-      return const Success("");
-    } on DioError catch (exception, stackTrace) {
-      final HttpError error = await parseHttpError(
-        error: exception,
-        stackTrace: stackTrace,
-      );
-      await _handleErrors(error, exception, stackTrace);
+  //     return const Success("");
+  //   } on DioError catch (exception, stackTrace) {
+  //     final HttpError error = await parseHttpError(
+  //       error: exception,
+  //       stackTrace: stackTrace,
+  //     );
+  //     await _handleErrors(error, exception, stackTrace);
 
-      return Failure(error);
-    } catch (exception) {
-      return Failure(
-        HttpUnknownError(
-          slug: exception.toString(),
-        ),
-      );
-    }
-  }
+  //     return Failure(error);
+  //   } catch (exception) {
+  //     return Failure(
+  //       HttpUnknownError(
+  //         slug: exception.toString(),
+  //       ),
+  //     );
+  //   }
+  // }
 }

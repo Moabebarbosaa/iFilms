@@ -160,7 +160,7 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
               Icons.copy,
               color: widget.color.prefix,
             ),
-            onPressed: () => print('pertou'),
+            onPressed: () => print('press'),
           );
         }
 

@@ -1,21 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-
-import '../../../shared/design_system/assets/flutter_base_images.dart';
-import '../../../shared/design_system/tokens/color_tokens.dart';
-import '../../../shared/design_system/widgets/hero_app_name.dart';
+import '../../../../shared/design_system/assets/flutter_base_images.dart';
+import '../../../../shared/design_system/tokens/color_tokens.dart';
+import '../../../../shared/design_system/widgets/hero_app_name.dart';
 
 const Duration _FADE_DURATION = Duration(milliseconds: 1200);
 const Duration _SLIDE_DURATION = Duration(milliseconds: 600);
 
-class SampleSplashScreen extends StatefulWidget {
-  const SampleSplashScreen({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SampleSplashScreen> createState() => _SampleSplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SampleSplashScreenState extends State<SampleSplashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late final AnimationController fadeController;
   late final AnimationController slideController;
@@ -54,7 +54,11 @@ class _SampleSplashScreenState extends State<SampleSplashScreen>
 
     try {
       fadeController.forward();
-    } catch (e) {}
+    } catch (e) {
+      if (kDebugMode) {
+        print('Couldn\'t dispose tickers: $e');
+      }
+    }
 
     Future.delayed(_FADE_DURATION - _SLIDE_DURATION).then(
       (value) {
@@ -68,7 +72,11 @@ class _SampleSplashScreenState extends State<SampleSplashScreen>
               );
             },
           );
-        } catch (e) {}
+        } catch (e) {
+          if (kDebugMode) {
+            print('Couldn\'t dispose tickers: $e');
+          }
+        }
       },
     );
   }
@@ -79,7 +87,9 @@ class _SampleSplashScreenState extends State<SampleSplashScreen>
       fadeController.dispose();
       slideController.dispose();
     } catch (e) {
-      print("Couldnt dispose tickers: $e");
+      if (kDebugMode) {
+        print('Couldn\'t dispose tickers: $e');
+      }
     }
     super.dispose();
   }

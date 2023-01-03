@@ -1,30 +1,32 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ifilms/src/sample_SN_RP/presentation/dummies/sample_home_screen.dart';
-import 'package:ifilms/src/sample_SN_RP/presentation/dummies/sample_login_screen.dart';
-import 'package:ifilms/src/sample_SN_RP/presentation/dummies/sample_splash_screen.dart';
-import 'package:ifilms/src/sample_SN_RP/presentation/smarties/sample_smart_view.dart';
-import 'package:ifilms/src/sample_SN_RP/sample_routes.dart';
+import 'package:ifilms/src/home/presentation/dummies/home/home_screen.dart';
+import 'package:ifilms/src/home/presentation/dummies/onboarding/splash_screen.dart';
+import 'package:ifilms/src/home/presentation/smarties/home_smart_view.dart';
 
-const String _ROOT = '/';
+import 'home/routes/home_routes.dart';
+import 'app_routes.dart';
+
+const String empty = '';
+const Map<String, dynamic> routeHideBottomNavMetadata = {
+  'hideBottomNav': true,
+};
 
 @CustomAutoRouter(
+  transitionsBuilder: TransitionsBuilders.slideLeft,
+  durationInMilliseconds: 200,
   replaceInRouteName: 'Page,Route,Screen',
-  routes: [
+  routes: <AutoRoute>[
     AutoRoute(
-      path: _ROOT,
-      page: SampleSmartView,
+      path: AppRoutes.init,
+      page: HomeSmartView,
       children: [
         AutoRoute(
-          path: SampleRoutes.sampleSplash,
-          page: SampleSplashScreen,
+          path: HomeRoutes.splash,
+          page: SplashScreen,
         ),
         AutoRoute(
-          path: SampleRoutes.sampleLogin,
-          page: SampleLoginScreen,
-        ),
-        AutoRoute(
-          path: SampleRoutes.sampleHome,
-          page: SampleHomeScreen,
+          path: HomeRoutes.home,
+          page: HomeScreen,
         ),
       ],
     ),

@@ -17,7 +17,7 @@ class _IFilmsAppState extends State<IFilmsApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'IFilmsApp',
+      title: 'IFilms',
       theme: FlutterBaseTheme.data(context),
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
@@ -31,7 +31,7 @@ class _IFilmsAppState extends State<IFilmsApp> {
                   child: child,
                 )
               : Banner(
-                  message: "ENVLESS",
+                  message: 'ENVLESS',
                   textDirection: TextDirection.ltr,
                   location: BannerLocation.topStart,
                   child: child,
