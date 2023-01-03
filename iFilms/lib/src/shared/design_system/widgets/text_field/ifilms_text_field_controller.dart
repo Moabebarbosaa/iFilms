@@ -3,18 +3,18 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../utils/validators.dart';
 
-class FlutterBaseTextFieldController extends TextEditingController {
+class IFilmsTextFieldController extends TextEditingController {
   List<String? Function(String)> validators;
   void Function(String)? onChanged;
-  late BehaviorSubject<FlutterBaseTextFieldControllerState> _subject;
+  late BehaviorSubject<IFilmsTextFieldControllerState> _subject;
 
   bool get dirty => _subject.value.dirty;
   bool get touched => _subject.value.touched;
   List<String> get errorMessages => _subject.value.errorMessages;
-  Stream<FlutterBaseTextFieldControllerState> get stream =>
+  Stream<IFilmsTextFieldControllerState> get stream =>
       _subject.stream.shareReplay(maxSize: 1);
 
-  FlutterBaseTextFieldController(
+  IFilmsTextFieldController(
     String? value, {
     bool dirty = false,
     bool touched = false,
@@ -24,7 +24,7 @@ class FlutterBaseTextFieldController extends TextEditingController {
     String? equalsTo,
     this.onChanged,
   }) : super(text: value) {
-    final initialState = FlutterBaseTextFieldControllerState(
+    final initialState = IFilmsTextFieldControllerState(
       dirty: dirty,
       touched: touched,
       shouldShowValidationState: shouldShowValidationState,
@@ -113,7 +113,7 @@ class FlutterBaseTextFieldController extends TextEditingController {
 }
 
 @immutable
-class FlutterBaseTextFieldControllerState {
+class IFilmsTextFieldControllerState {
   final bool dirty;
   final bool touched;
   final bool shouldShowValidationState;
@@ -131,7 +131,7 @@ class FlutterBaseTextFieldControllerState {
     return null;
   }
 
-  const FlutterBaseTextFieldControllerState({
+  const IFilmsTextFieldControllerState({
     this.dirty = false,
     this.touched = false,
     this.shouldShowValidationState = false,
@@ -139,14 +139,14 @@ class FlutterBaseTextFieldControllerState {
     this.obscured = true,
   });
 
-  FlutterBaseTextFieldControllerState copyWith({
+  IFilmsTextFieldControllerState copyWith({
     bool? dirty,
     bool? touched,
     bool? shouldShowValidationState,
     List<String>? errorMessages,
     bool? obscured,
   }) {
-    return FlutterBaseTextFieldControllerState(
+    return IFilmsTextFieldControllerState(
       dirty: dirty ?? this.dirty,
       touched: touched ?? this.touched,
       shouldShowValidationState:

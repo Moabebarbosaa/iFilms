@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../themes/app_button_color.dart';
-import '../../themes/flutter_base_text_style.dart';
+import '../../themes/app_text_style.dart';
 import '../../tokens/spacing_tokens.dart';
-import '../flutter_base_circular_progress_indicator.dart';
+import '../ifilms_circular_progress_indicator.dart';
 
 const double _BTN_HEIGHT = SpacingTokens.yotta;
 
-class FlutterBaseOutlineButton extends StatelessWidget {
-  const FlutterBaseOutlineButton(
+class IFilmsOutlineButton extends StatelessWidget {
+  const IFilmsOutlineButton(
     this.text, {
     Key? key,
     this.onPressed,
@@ -110,7 +110,7 @@ class FlutterBaseOutlineButton extends StatelessWidget {
                       Flexible(
                         child: Text(
                           text ?? '',
-                          style: FlutterBaseTextStyle.button.style,
+                          style: AppTextStyle.button.style,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -125,7 +125,7 @@ class FlutterBaseOutlineButton extends StatelessWidget {
                       : const Expanded(
                           flex: 2,
                           child: Center(
-                            child: FlutterBaseCircularProgressIndicator(),
+                            child: IFilmsCircularProgressIndicator(),
                           ),
                         ),
                 ),

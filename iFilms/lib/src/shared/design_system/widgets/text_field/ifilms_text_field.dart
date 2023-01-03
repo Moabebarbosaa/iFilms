@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../themes/app_text_field_color.dart';
-import '../../themes/flutter_base_text_style.dart';
+import '../../themes/app_text_style.dart';
 import '../../tokens/spacing_tokens.dart';
 import '../../tokens/typography_tokens.dart';
-import 'flutter_base_text_field_controller.dart';
+import 'ifilms_text_field_controller.dart';
 
 enum SUFFIX { None, Eye, Close, Copy }
 
-class FlutterBaseTextField extends StatefulWidget {
+class IFilmsTextField extends StatefulWidget {
   final String hintText;
-  final FlutterBaseTextFieldController? controller;
+  final IFilmsTextFieldController? controller;
   final List<TextInputFormatter> formatters;
   final TextInputType keyboardType;
   final void Function(String)? onSubmitted;
@@ -28,7 +28,7 @@ class FlutterBaseTextField extends StatefulWidget {
   final int maxLines;
   final TextCapitalization textCapitalization;
 
-  const FlutterBaseTextField({
+  const IFilmsTextField({
     Key? key,
     this.hintText = '',
     this.controller,
@@ -49,19 +49,19 @@ class FlutterBaseTextField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FlutterBaseTextFieldState createState() => _FlutterBaseTextFieldState();
+  _IFilmsTextFieldState createState() => _IFilmsTextFieldState();
 }
 
-class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
+class _IFilmsTextFieldState extends State<IFilmsTextField> {
   late BehaviorSubject<bool> focusSubject;
   late FocusNode focusNode;
   late void Function() focusListener;
-  late FlutterBaseTextFieldController controller;
+  late IFilmsTextFieldController controller;
 
   @override
   void initState() {
     if (widget.controller == null) {
-      controller = FlutterBaseTextFieldController(null);
+      controller = IFilmsTextFieldController(null);
     } else {
       controller = widget.controller!;
     }
@@ -78,10 +78,10 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
   Widget build(BuildContext context) {
     return StreamBuilder<_TextFieldState>(
       initialData: _TextFieldState(
-        const FlutterBaseTextFieldControllerState(),
+        const IFilmsTextFieldControllerState(),
         widget.autofocus,
       ),
-      stream: Rx.combineLatest2<FlutterBaseTextFieldControllerState, bool,
+      stream: Rx.combineLatest2<IFilmsTextFieldControllerState, bool,
           _TextFieldState>(
         controller.stream,
         focusSubject.stream,
@@ -206,7 +206,7 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
 
   ThemeData generateTheme(
     BuildContext context,
-    FlutterBaseTextFieldControllerState? state,
+    IFilmsTextFieldControllerState? state,
   ) {
     final currentTheme = Theme.of(context);
     final shouldShowSuccess =
@@ -214,16 +214,16 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
 
     return currentTheme.copyWith(
       inputDecorationTheme: currentTheme.inputDecorationTheme.copyWith(
-        prefixStyle: FlutterBaseTextStyle.bodyText1.style.copyWith(
+        prefixStyle: AppTextStyle.bodyText1.style.copyWith(
           color: widget.color.prefix,
         ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: SpacingTokens.tera,
         ),
-        hintStyle: FlutterBaseTextStyle.headline5.style.copyWith(
+        hintStyle: AppTextStyle.headline5.style.copyWith(
           color: widget.color.hintText,
         ),
-        errorStyle: FlutterBaseTextStyle.caption.style.copyWith(
+        errorStyle: AppTextStyle.caption.style.copyWith(
           color: widget.color.errorText,
         ),
         disabledBorder: UnderlineInputBorder(
@@ -281,13 +281,13 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
 
   TextStyle style(bool hasFocus) {
     if (hasFocus == true) {
-      return FlutterBaseTextStyle.headline5.style.copyWith(
+      return AppTextStyle.headline5.style.copyWith(
         fontWeight: FontWeightTokens.light,
         fontSize: FontSizeTokens.peta,
         color: widget.color.focusedText,
       );
     }
-    return FlutterBaseTextStyle.headline5.style.copyWith(
+    return AppTextStyle.headline5.style.copyWith(
       fontWeight: FontWeightTokens.light,
       fontSize: FontSizeTokens.peta,
       color: widget.color.unfocusedText,
@@ -304,7 +304,7 @@ class _FlutterBaseTextFieldState extends State<FlutterBaseTextField> {
 
 class _TextFieldState {
   final bool hasFocus;
-  final FlutterBaseTextFieldControllerState state;
+  final IFilmsTextFieldControllerState state;
 
   _TextFieldState(this.state, this.hasFocus);
 }
@@ -323,7 +323,7 @@ class _Prefix extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: SpacingTokens.kilo),
       child: Text(
         text,
-        style: FlutterBaseTextStyle.bodyText2.style.apply(color: textColor),
+        style: AppTextStyle.bodyText2.style.apply(color: textColor),
       ),
     );
   }

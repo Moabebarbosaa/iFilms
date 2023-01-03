@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../tokens/color_tokens.dart';
 
-class FlutterBaseCircularProgressIndicator extends StatelessWidget {
+class IFilmsCircularProgressIndicator extends StatelessWidget {
   final double? size;
   final Alignment? alignment;
 
-  const FlutterBaseCircularProgressIndicator(
+  const IFilmsCircularProgressIndicator(
       {Key? key, this.alignment, this.size})
       : super(key: key);
 

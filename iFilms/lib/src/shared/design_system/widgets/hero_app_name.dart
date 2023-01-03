@@ -26,7 +26,7 @@ class _HeroAppNameState extends State<HeroAppName> {
             FlutterBaseImages.logoAndName,
           ),
           Text(
-            'Flutter Base',
+            'iFilms',
             style: textTheme.bodyText1?.copyWith(fontSize: 18),
           ),
         ],
